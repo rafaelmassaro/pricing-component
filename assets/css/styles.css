@@ -1,6 +1,8 @@
 html{
     font-size: 62.5%;
 
+    --primary: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+
     --very-light-grayish-blue: hsl(240, 78%, 98%);
     --light-grayish-blue: hsl(234, 14%, 74%);
     --grayish-blue: hsl(233, 13%, 49%);
@@ -13,4 +15,70 @@ html{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../images/bg-bottom.svg'), url('../images/bg-top.svg');
+    background-size: auto, contain;
+    background-position: bottom left, top right;
+    background-repeat: no-repeat;
+}
+
+.container{
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.top-session{
+    margin-top: 7rem;
+    text-align: center;
+}
+
+.title{
+    font-size: 2.2rem;
+    color: var(--grayish-blue);
+}
+
+.toogle-area{
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toogle-area span{
+    font-size: 1.5rem;
+    color: var(--light-grayish-blue);
+}
+
+#change-mode{
+    display: none;
+}
+
+.toggle{
+    width: 55px;
+    height: 32px;
+    margin: 0 25px;
+    background: var(--primary);
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+}
+
+.toggle::after{
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: var(--very-light-grayish-blue);
+    top: 5px;
+    right: 5px;
+    transition: .4s;
+}
+
+#change-mode:checked + .toggle::after{
+    right: 28px;
 }
